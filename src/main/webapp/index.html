@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+ <style>
+  .item {
+
+  display: none;
+
+  width: 300px;
+
+  height: 400px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  } 
+
+  .item>img {
+
+  width: 100%;
+
+  height: auto;
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  right: 0;
+  bottom: 0;
+  margin: auto;
+
+  }
+
+  .item.active {
+
+  display: block;
+
+  }
+
+ </style>
+
+
+</head>
+<body>
+<div>
+
+  <button class="prev" >上一頁</button>
+
+  <button class="btn">1</button>
+
+  <button class="btn">2</button>
+
+  <button class="btn">3</button>
+
+  <button class="btn">4</button>
+
+  <button class="next" >下一頁</button>
+
+ </div>
+
+ <div>
+
+  <div class="item active"><img alt="10" src="img/1.png" height="1191" width="820" /></div>
+
+  <div class="item"><img alt="11" src="img/2.png" height="1191" width="820" /></div>
+
+  <div class="item"><img alt="12" src="img/3.png" height="1191" width="820" /></div>
+
+  <div class="item"><img alt="13" src="img/4.png" height="1191" width="820" /></div>
+
+ </div>
+ 
+ <script type="text/javascript">
+02
+ //封裝函式、圖片顯示的部分、傳入獲取到的div，和被點選的序號
+
+ function toggle(eles,active) {
+
+  for(var i = eles.length; i--;) {
+
+   eles[i].className = "item"; //先讓所有div隱藏
+
+  }
+
+  eles[active].className = "item active";//再讓被點選的序號對應的div 顯示
+
+  }
+
+  //獲取按鍵和div
+
+  var aBtn = document.getElementsByClassName("btn");
+
+  var aIem = document.getElementsByClassName("item");
+var prev = document.getElementsByClassName("prev");
+
+  var next = document.getElementsByClassName("next");
+
+  var nowPage = 0; //定義當前頁，預設值為0；
+
+  for(var i = aBtn.length; i--;) {
+
+   aBtn[i].tab = i;
+
+   aBtn[i].onclick=function(){
+
+   toggle(aIem,this.tab);
+
+   nowPage=this.tab; //被點選後，儲存當前頁的序號
+
+   }
+
+  }
+
+   //下一頁
+
+  next[0].onclick = function () { 
+
+   nowPage++;  
+
+   nowPage %= aBtn.length;
+
+   toggle(aIem,nowPage);
+
+  }
+
+  //上一頁
+
+  prev[0].onclick=function(){
+
+  nowPage--;
+
+  if(nowPage ==-1){
+
+   nowPage = aBtn.length-1;
+
+  }
+
+ toggle(aIem,nowPage); 
+
+  }
+
+</script>
+ 
+
+</body>
+</html>
