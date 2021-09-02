@@ -5,8 +5,8 @@
 系統主畫面
 ![image](https://github.com/jaylee840831/Questionnaire/blob/main/%E6%93%B7%E5%8F%96.JPG)
 
-新增問卷項目
+新增問卷內容
 ![image](https://github.com/jaylee840831/Questionnaire/blob/main/2.JPG)
 
-修改問卷項目
+修改問卷內容
 ![image](https://github.com/jaylee840831/Questionnaire/blob/main/3.JPG)
